@@ -1,6 +1,10 @@
 {
     /**
      * 了解闭包
+     * 浅拷贝
+     * 深拷贝
+     * 扁平化
+     * 排序
      * const let var的区别
      * const: 常量, 不可以被更改, 只能在作用域内使用
      * let: 可以被更改, 只能在作用域内使用
@@ -10,6 +14,7 @@
 }
 
 {
+    console.clear();
     const ACTIVE = true;
     if (ACTIVE) {
         console.clear();
@@ -20,6 +25,7 @@
 }
 
 {
+    console.clear();
     let myName = "Alfred";
     myName = "Haomin";
     console.log(myName);
@@ -30,6 +36,7 @@
      * 0通常代表false, 1代表true. 除了这两个数字剩余的数字并不代表boolean的值
      * 通常使用"==="对两个变量进行判断, 这也意味着进行的是"严格相等".
      */
+    console.clear();
     let a = 1;
     let b = "Alfred";
     let c = true;
@@ -48,6 +55,7 @@
 }
 
 {
+    console.clear();
     let a = "Alfred";
     let b = 'Haomin';
     let c = `Alfred Xin`
@@ -57,6 +65,7 @@
 
 {
     // 将数字转换为字符串("" + number)
+    console.clear();
     let number = 3;
     let strResult = "" + number;
     console.log("strResult", strResult, typeof strResult);
@@ -71,6 +80,7 @@
 }
 
 {
+    console.clear();
     let list = [1, 2, 3, 4];
     let obj = {
         1: "Alfred",
@@ -80,3 +90,88 @@
     console.table(list);
     console.table(obj);
 }
+
+{
+    /**
+     * Falsy value(false, 0, empty value, -0, null, undefined, NaN)在if条件句中都是false
+     */
+    console.clear();
+    const state = true;
+    if (state) {
+        console.log("Good");
+    } else {
+        console.log("bad");
+    }
+
+    let arr = [];
+    if (arr) {
+        console.log("HERE")
+    } else {
+        console.log("False");
+    }
+}
+
+{
+    /**
+     * pass by reference: 当obj指向同一个地址的时候一个改变另一个也会改变
+     */
+    console.clear();
+    const list = [1, 2, 3, 4];
+    const newList = list;
+    console.log("list", list);
+    console.log("newList", newList);
+    list[0] = 9
+    newList[0] = 10;
+    newList[6] = 0;
+    console.log("list", list);
+    console.log("newList", newList);
+}
+
+{
+    /**
+     * pass by reference example
+     */
+    console.clear();
+    const person = {
+        name: "Alfred",
+        age: 22,
+        profile: {
+            address: "Toowong"
+        }
+    }
+
+    const countAge = (person) => {
+        person.age += 1;
+        person.profile.address = "Brisbane"
+        person = {
+            name: "Alfred",
+            age: 22,
+        }
+        console.log(person.age)
+    }
+
+    countAge(person);
+    console.table(person);
+}
+
+{
+    /**
+     * pass by value
+     */
+    console.clear();
+    const calSquare = (x) => {
+        x = x * x;
+        console.log("x:", x);
+    }
+    const y = 10;
+    calSquare(y);
+    console.log("y", y)
+}
+
+{
+    /**
+     * 浅拷贝(shallow copy)
+     */
+}
+
+
