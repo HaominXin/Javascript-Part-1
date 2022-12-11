@@ -3,8 +3,6 @@
      * 了解闭包
      * 浅拷贝
      * 深拷贝
-     * 扁平化
-     * 排序
      * const let var的区别
      * const: 常量, 不可以被更改, 只能在作用域内使用
      * let: 可以被更改, 只能在作用域内使用
@@ -150,7 +148,14 @@
         console.log(person.age)
     }
 
+    const calAge = (age) => {
+        age += 2;
+        console.log(age)
+    }
+
     countAge(person);
+    calAge(person.age);
+    console.log(person);
     console.table(person);
 }
 
@@ -172,6 +177,43 @@
     /**
      * 浅拷贝(shallow copy)
      */
+    console.clear();
+    const list = {
+        name: "Alfred",
+        profile: {
+            address: "Brisbane"
+        }
+    }
+    const newList = {...list};
+    console.log("list:", list);
+    console.log("newList:", newList);
+
+    newList.name = "Haomin";
+    newList.profile.address = "Queensland"
+    console.log("list:", list);
+    console.log("newList:", newList);
 }
+
+{
+    console.clear();
+    const arr = [{
+        name: "Alfred",
+        profile: [{
+            address: "Toowong",
+        }]
+    }]
+    const newArr = [...arr];
+    console.log("arr:", arr[0].name);
+    console.log("newArr:", newArr[0].name);
+    console.log("arr:", arr[0].profile[0].address);
+    console.log("newArr:", newArr[0].profile[0].address);
+    newArr[0].name = "Haomin";
+    newArr[0].profile[0].address = "Queensland";
+    console.log("arr:", arr[0].name);
+    console.log("newArr:", newArr[0].name);
+    console.log("arr:", arr[0].profile[0].address);
+    console.log("newArr:", newArr[0].profile[0].address);
+}
+
 
 
